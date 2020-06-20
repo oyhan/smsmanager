@@ -43,18 +43,19 @@ import DashboardUserList from "views/User/DashboardUserList";
 import UserPage from "views/User/UserPage";
 import CreditNew from "views/Credit/CreditNew";
 import { Money, Check } from "@material-ui/icons";
+import TariffPage from "views/Tariff/TariffPage";
 
 const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
 
 
-  const {state} = useConnect("DashboardViewModel",{});
+  const { state } = useConnect("DashboardViewModel", {});
   const classes = useStyles();
   return (
     <div>
 
-      
+
       <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
@@ -133,7 +134,7 @@ export default function Dashboard() {
       </GridContainer>
 
       <GridContainer>
-       <GridItem xs={12} sm={12} md={12}>
+        <GridItem xs={12} sm={12} md={12}>
           {/* <DashboardUserList users={state.Users}/> */}
         </GridItem>
         <GridItem xs={12} sm={12} md={12}>
@@ -226,10 +227,10 @@ export default function Dashboard() {
                 // tabName: "Bugs",
                 tabIcon: Money,
                 tabContent: (
-                 <CreditNew SmsTariff={state.SmsTariff} />
+                  <CreditNew SmsTariff={state.SmsTariff} />
                 )
               }
-            
+
               ,
               // {
               //   tabName: "Website",
@@ -242,44 +243,25 @@ export default function Dashboard() {
               //     />
               //   )
               // },
-            //   {
-            //     tabName: "Server",
-            //     tabIcon: Cloud,
-            //     tabContent: (
-            //       <Tasks
-            //         checkedIndexes={[1]}
-            //         tasksIndexes={[0, 1, 2]}
-            //         tasks={server}
-            //       />
-            //     )
-            //   }
+              //   {
+              //     tabName: "Server",
+              //     tabIcon: Cloud,
+              //     tabContent: (
+              //       <Tasks
+              //         checkedIndexes={[1]}
+              //         tasksIndexes={[0, 1, 2]}
+              //         tasks={server}
+              //       />
+              //     )
+              //   }
             ]
-            
+
             }
           />
         </GridItem>
-        {/* <GridItem xs={12} sm={12} md={6}>
-          <Card>
-            <CardHeader color="warning">
-              <h4 className={classes.cardTitleWhite}>Employees Stats</h4>
-              <p className={classes.cardCategoryWhite}>
-                New employees on 15th September, 2016
-              </p>
-            </CardHeader>
-            <CardBody>
-              <Table
-                tableHeaderColor="warning"
-                tableHead={["ID", "Name", "Salary", "Country"]}
-                tableData={[
-                  ["1", "Dakota Rice", "$36,738", "Niger"],
-                  ["2", "Minerva Hooper", "$23,789", "Curaçao"],
-                  ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
-                  ["4", "Philip Chaney", "$38,735", "Korea, South"]
-                ]}
-              />
-            </CardBody>
-          </Card>
-        </GridItem> */}
+        <GridItem xs={12} sm={12} md={6}>
+          <TariffPage />
+        </GridItem>
       </GridContainer>
     </div>
   );

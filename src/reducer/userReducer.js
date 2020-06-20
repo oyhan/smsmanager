@@ -2,8 +2,8 @@ import * as actions from "actions/userActions";
 import { UserService } from "services/UserService";
 
 export const userReducer = (state, action) => {
-  console.log('action: ', action);
-  console.log("state: ", state);
+  
+  
 
   var user = "";
   switch (action.type) {

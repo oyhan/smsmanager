@@ -34,8 +34,10 @@ import { initialState } from "store/appState";
 import mainReducer from "reducer";
 import "infrastructure/Helper/localization";
 import Login from "views/Login/Login";
-import { PrivateRoute } from "infrastructure/privateRout";
 import {Scope} from 'dotnetify'
+import SmsList from 'views/User/SmsList';
+import { PrivateRoute } from 'infrastructure/privateRout';
+import TransactionList from "views/User/TransactionList";
 const hist = createBrowserHistory();
 enableRtl(true);
 ReactDOM.render(
@@ -48,6 +50,9 @@ ReactDOM.render(
           <StateProvider initialState={initialState} reducer={mainReducer}>
             <Switch>
               <PrivateRoute path="/admin" component={Admin} />
+              <Route path="/user/:username/smslist" component={SmsList} />
+              <Route path="/user/:username/transactions" component={TransactionList} />
+
               <Route path="/login" component={Login} />
               {/* <Route path="/rtl" component={RTL} /> */}
               {/* <PrivateRoute exact path="/" component={Home} /> */}

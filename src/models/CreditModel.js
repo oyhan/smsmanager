@@ -37,7 +37,7 @@ export class CreditModel {
 
         return MainService.Get(Urls.User.GetAll).then(response => {
             const dtSource = response.map(u=> ({text:u.Username,value : u.Id}));
-            console.log('dtSource: ', dtSource);
+            
 
 
             return [
@@ -62,7 +62,7 @@ export class CreditModel {
 
         return MainService.Get(Urls.User.GetAll).then(response => {
             const dtSource = response.map(u=> ({text:u.UserName,value : u.Id}));
-            console.log('dtSource: ', dtSource);
+            
 
 
             return [
@@ -80,8 +80,8 @@ export class CreditModel {
     }
     static list() {
         return MainService.Get(Urls.Credit.GetAll).then((response) => {
-            console.log("reponse from get all");
-            console.log(response);
+            
+            
             return response;
         });
     }
@@ -94,13 +94,13 @@ export class CreditModel {
         var postdata = formExtractor(event.target);
         return MainService.New("/api/credit/AddCredit", postdata);
         //     if (postdata.CreditName === "ali" && postdata.passWord === '123') {
-        //         console.log("ok");
+        //         
         //          CreditService.singin({Name:"admin",isAuthenticated :true});
         //          return Promise.resolve({ redirect: undefined, message: "عملیات  با موفقیت انجام شد" });
         //     // return CreditService.New(postdata)
         //     //     .then((response) => {
-        //     //         console.log("response");
-        //     //         console.log(response);
+        //     //         
+        //     //         
 
         //     //         // CreditService.singin(response);
         //     //         return Promise.resolve({ redirect: "/", message: "عملیات  با موفقیت انجام شد" });

@@ -1,15 +1,15 @@
 
 import React, { useEffect, useState } from 'react';
-import { useConnect } from 'dotnetify';
-import DataTable from 'components/DataGrid/DataTable';
-import { UserModel } from 'models/UserModel';
-import { CustomApiAdaptor } from 'infrastructure/DataAdaptor/CustomDataAdaptor';
+import { useConnect } from './node_modules/dotnetify';
+import DataTable from './node_modules/components/DataGrid/DataTable';
+import { UserModel } from './node_modules/models/UserModel';
+import { CustomApiAdaptor } from './node_modules/infrastructure/DataAdaptor/CustomDataAdaptor';
 import { DataManager, RemoteSaveAdaptor, UrlAdaptor } from '@syncfusion/ej2-data';
-import { authentication } from 'services/UserService';
+import { authentication } from './node_modules/services/UserService';
 import { ContextMenu } from '@syncfusion/ej2-react-grids';
 import { useHistory ,Switch } from 'react-router-dom'
-import SmsList from 'views/User/SmsList';
-import { PrivateRoute } from 'infrastructure/privateRout';
+import SmsList from './node_modules/views/User/SmsList';
+import { PrivateRoute } from './node_modules/infrastructure/privateRout';
 export default function DashboardUserList() {
 
 
@@ -21,7 +21,7 @@ export default function DashboardUserList() {
 
 
     })
-    
+    console.log("dashboard userlist executed");
     var history = useHistory();
     const contextMenuClick = (args) => {
         

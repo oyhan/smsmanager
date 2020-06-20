@@ -1,17 +1,20 @@
 import React from 'react'
 import { BugReport, Person, List, Add } from "@material-ui/icons";
 import UserNew from "./UserNew";
-import CustomTabs from "views/Credit/node_modules/components/CustomTabs/CustomTabs";
+import CustomTabs from "./node_modules/components/CustomTabs/CustomTabs";
 import UserList from './UserList';
 
 import { Router, Route, Switch, Redirect, Link } from "react-router-dom";
-import ConsoleLogs from 'views/Credit/node_modules/views/ConsoleLogs/ConsoleLogs';
+import ConsoleLogs from './node_modules/views/ConsoleLogs/ConsoleLogs';
 import UserEdit from './UserEdit';
+import DashboardUserList from './DashboardUserList';
+import { useConnect } from './node_modules/dotnetify';
 
 
 
-export default function UserPage(props) {
-  console.log('UserPage props: ', props);
+export default function UserPage() {
+  
+  // const { state } = useConnect("UserViewModel", {})
 
 
   return (
@@ -20,17 +23,20 @@ export default function UserPage(props) {
       {/* <Route path={`${props.match.path}/clients/:customerId`} component={UserClietns} /> */}
 
 
-      <Route path={`${props.match.path}/User/edit/:UserId`} component={UserEdit} />
+      {/* <Route path={`${props.match.path}/User/edit/:UserId`} component={UserEdit} /> */}
 
       <CustomTabs
         title="Users"
         headerColor="primary"
         tabs={[
+         
           {
             tabName: "List",
             tabIcon: List,
             tabContent: (
-              <UserList {...props} />
+              <DashboardUserList
+              //  users={state.Users}  
+               />
 
             )
           },

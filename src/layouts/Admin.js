@@ -43,7 +43,7 @@ export default function Admin({ ...rest }) {
         }
         return null;
       })}
-      <Redirect from="/admin" to="/admin/logs" />
+      {/* <Redirect from="/admin" to="/admin/logs" /> */}
   
     </Switch>
   );

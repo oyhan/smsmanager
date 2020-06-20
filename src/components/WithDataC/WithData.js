@@ -40,7 +40,7 @@ export default function WithData({ Component, dataSource, onSubmit }) {
                 })
             else
                 dataSource.then((r) => {
-                    console.log('r: ', r);
+                    
 
                     this.setState({ data: r, loading: false });
 

@@ -19,11 +19,12 @@ import useTab from "store/tabcontrol";
 const useStyles = makeStyles(styles);
 
 export default function CustomTabs(props) {
-  // const [value, setValue] = React.useState(0);
-  const [value, actions] = useTab();
+  const [value, setValue] = React.useState(0);
+  // const [value, actions] = useTab();
   const handleChange = (event, value) => {
     
-    actions.setValue(value);
+    // actions.setValue(value);
+    setValue(value);
   };
   const classes = useStyles();
   const { headerColor, plainTabs, tabs, title, rtlActive } = props;
@@ -36,7 +37,7 @@ export default function CustomTabs(props) {
       <CardHeader color={headerColor} plain={plainTabs}>
         {title !== undefined ? <div className={cardTitle}>{title}</div> : null}
         <Tabs
-          value={value.value}
+          value={value}
           onChange={handleChange}
           classes={{
             root: classes.tabsRoot,
@@ -70,7 +71,7 @@ export default function CustomTabs(props) {
       </CardHeader>
       <CardBody>
         {tabs.map((prop, key) => {
-          if (value.value  === key) {
+          if (value  === key) {
             return <div key={key}>{prop.tabContent}</div>;
           }
           return null;

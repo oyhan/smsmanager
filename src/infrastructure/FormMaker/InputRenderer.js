@@ -9,7 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { VisibilityOff, Visibility } from "@material-ui/icons";
 import ValidationTextField from "./ValidationTextField";
-
+import DatePicker from "react-datepicker2";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -52,6 +52,7 @@ const useStyles = makeStyles(theme => ({
 
 }));
 export function InputRenderer(props) {
+    
 
     const classes = useStyles();
     const [state, setState] = useState({
@@ -61,6 +62,8 @@ export function InputRenderer(props) {
     })
 
     var { Name: name, Type: type, Required: required, DisplayName: displayName, DefaultValue: defaultValue, DataSource, Disabled, Controled, multiple, Hint, ...other } = props;
+    
+    
 
     var InputLabelRef = null;
 
@@ -76,9 +79,10 @@ export function InputRenderer(props) {
             });
         }
 
-
+        
 
         if (props.DefaultValue) {
+            
 
 
             setState({ [props.Name]: props.DefaultValue });
@@ -109,7 +113,7 @@ export function InputRenderer(props) {
     };
 
 
-
+    const [date, setDatetime] = useState();
 
 
     required = required === undefined ? false : required;
@@ -125,7 +129,6 @@ export function InputRenderer(props) {
         case PropType.Text:
         case PropType.Guid:
         case PropType.String:
-        case PropType.DateTime:
 
             return (
 
@@ -497,6 +500,15 @@ export function InputRenderer(props) {
 
 
             )
+
+        case PropType.DateTime:
+
+            return <DatePicker
+                isGregorian={false}
+                placeholder={displayName}
+                name={name}    
+                value={date}
+                onChange={value => setDatetime(date)} />;
 
         default:
             break;

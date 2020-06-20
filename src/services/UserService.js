@@ -34,7 +34,7 @@ export const UserService = {
     get username() { return user.Name },
     get token() { 
         const newUser = JSON.parse(localStorage.getItem('user'));
-        console.log('newUser: ', newUser);
+        
         
         return newUser && newUser.AccessToken },
     id() {

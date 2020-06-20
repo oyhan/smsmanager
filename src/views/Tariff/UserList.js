@@ -1,13 +1,13 @@
 import React, { Fragment, useState } from 'react'
-import { UserModel } from 'views/Credit/node_modules/models/UserModel';
-import CustomGrid from 'views/Credit/node_modules/components/DataGrid/Grid';
+import { UserModel } from 'models/UserModel';
+import CustomGrid from 'components/DataGrid/Grid';
 import { CommandColumn } from '@syncfusion/ej2-react-grids';
 import { Redirect } from "react-router-dom";
 
-import Button from "views/Credit/node_modules/components/CustomButtons/Button.js.js";
+import Button from "components/CustomButtons/Button.js";
 // import UserPage from '../UserPage';
 import { createBrowserHistory } from "history";
-import UserEdit from './UserEdit';
+import UserEdit from './TariffEdit';
 
 
 

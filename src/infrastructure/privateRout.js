@@ -12,7 +12,7 @@ export const PrivateRoute = ({
   ...rest
 }) => {
   const [{ user }, dispatch] = useStateValue();
-  console.log('user: ', user);
+  
 
   useEffect(() => {
     UserService.IsAuthenticated().then(result => {

@@ -1,12 +1,13 @@
 import React from 'react'
-import { GridComponent, ColumnsDirective, Print, ColumnDirective, Filter, Inject, VirtualScroll, Sort, Page, Toolbar, Search, Group, ExcelExport, PdfExport, Edit, DetailRow, ForeignKey, SearchSettings, Resize } from '@syncfusion/ej2-react-grids';
-import { DataManager, UrlAdaptor, WebApiAdaptor, JsonAdaptor, ODataAdaptor, RemoteSaveAdaptor, WebMethodAdaptor } from '@syncfusion/ej2-data';
+import { GridComponent, ColumnsDirective,ContextMenu, Print, ColumnDirective, Filter, Inject, VirtualScroll, Sort, Page, Toolbar, Search, Group, ExcelExport, PdfExport, Edit, DetailRow, ForeignKey, SearchSettings, Resize } from '@syncfusion/ej2-react-grids';
+import { DataManager } from '@syncfusion/ej2-data';
 import { ShowSnack } from 'infrastructure/Helper/Showsnack';
 import 'infrastructure/Helper/localization';
+import { PropType } from 'models/Types';
 
 
 
-export default function DataTable({ columns, data, addCol, childGrid, gridConfig, columnTemplate, ...props }) {
+export default function DataTable({ columns, data, addCol, childGrid, gridConfig, columnTemplate,services, ...props }) {
     const toolbarOptions = ['Search', 'ExcelExport', 'Print', 'Add', 'Edit', 'Delete', 'Update', 'Cancel'];
     const [grid, setGrid] = React.useState({});
     const editOptions = { allowEditing: props.edit && true, allowAdding: false, allowDeleting: props.delete && true, showDeleteConfirmDialog: true, mode: props.dialogTemplate ? 'Dialog' : 'Normal', template: props.dialogTemplate };
@@ -140,7 +141,7 @@ export default function DataTable({ columns, data, addCol, childGrid, gridConfig
 
                             )
                             return (<ColumnDirective key={c.Name} field={c.Name} isPrimaryKey ={c.primaryKey}
-                                format={c.Format}  
+                                format={c.Format}  displayAsCheckBox={c.Type == PropType.CheckBox }
                                 template={columnTemplate && c.Name == columnTemplate.columnName ? columnTemplate.template : ""}
 
                                 headerText={c.DisplayName} width={c.width || '150'}></ColumnDirective>)
@@ -162,7 +163,7 @@ export default function DataTable({ columns, data, addCol, childGrid, gridConfig
 
                 }
             </ColumnsDirective>
-            <Inject services={[Resize ,ForeignKey, DetailRow, Toolbar, Search, Sort, ExcelExport, PdfExport, Edit, Page, Group, Filter]} />
+            <Inject services={[Resize ,ForeignKey, DetailRow, Toolbar, Search, Sort, ExcelExport, PdfExport, Edit, Page, Group, Filter,...services||[]]} />
         </GridComponent>
     )
 }

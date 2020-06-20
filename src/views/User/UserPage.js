@@ -12,9 +12,9 @@ import { useConnect } from 'dotnetify';
 
 
 
-export default function UserPage(props) {
-  console.log('UserPage props: ', props);
-  const { state } = useConnect("UserViewModel", {})
+export default function UserPage() {
+  
+  // const { state } = useConnect("UserViewModel", {})
 
 
   return (
@@ -34,7 +34,9 @@ export default function UserPage(props) {
             tabName: "List",
             tabIcon: List,
             tabContent: (
-              <DashboardUserList users={state.Users}  />
+              <DashboardUserList
+              //  users={state.Users}  
+               />
 
             )
           },
